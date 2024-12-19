@@ -36,18 +36,10 @@ clean:
 
 fclean: clean
 	@echo "🔄 Cleaning..."
-	@for i in 1 2 3 4 5; do \
-		for j in '▓' '▒' '░'; do \
-			echo -n "$$j"; \
-			sleep 0.1; \
-			echo -n "\r"; \
-		done; \
-	done
+	@bash ./loading.sh
 	@make clean -s -C $(LIBFT)
 	@rm -f $(NAME)
-	@echo " ✔️ Clean complete!"
-
-                                                                                                                         
+	@echo " \033[32m✔\033[0m Clean complete!"
 re: fclean all
 
 .PHONY:	all clean fclean
