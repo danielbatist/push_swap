@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2024/12/18 11:01:12 by dbatista         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:39:28 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 #define PUSH_SWAP_H
 
-#include "../lib/src/libft.h"
+#include "../libft/src/libft.h"
 #include <stdlib.h>
 #include <stdio.h>
 

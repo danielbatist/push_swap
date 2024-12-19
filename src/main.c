@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:01:43 by dbatista          #+#    #+#             */
-/*   Updated: 2024/12/18 11:11:12 by dbatista         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:47:18 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 int	main	(int argc, char ** argv)
 {
@@ -21,15 +21,24 @@ int	main	(int argc, char ** argv)
 	if (argc < 2)
 	{
 		printf("Error, please trya again.\n");
+		return (1);
 	}
+	//crio a pilha
 	stack_a = creat_stack(argc - 1);
-	i = 0;
+	if (!stack_a)
+	{
+		printf("Error stack not created");
+		return (1);
+	}
+	//adiciono o numeros na pilha
+	i = 1;
 	while (i < argc)
 	{
 		num = ft_atoi(argv[i]);
 		add_number(stack_a, num);
 		i++;
 	}
+	//imprime a pilha
 	i = 0;
 	while (i < stack_a->size)
 	{

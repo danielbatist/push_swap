@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:28:48 by dbatista          #+#    #+#             */
-/*   Updated: 2024/12/18 10:51:38 by dbatista         ###   ########.fr       */
+/*   Updated: 2024/12/18 17:27:17 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../inc/push_swap.h"
 
 t_stack	*creat_stack(int capacity)
 {
