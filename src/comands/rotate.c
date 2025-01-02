@@ -1,59 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverse.c                                          :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 23:49:48 by dbatista          #+#    #+#             */
-/*   Updated: 2024/12/29 00:42:34 by dbatista         ###   ########.fr       */
+/*   Created: 2024/12/26 23:49:35 by dbatista          #+#    #+#             */
+/*   Updated: 2025/01/02 17:02:44 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rra(t_stack *a)
+void    ra(t_stack *a)
 {
 	if (a->size < 2)
 		return ;
 	int	i;
 	int	temp;
 
-	i = (a->size - 1);
-	temp = a->node[i];
-	while (i > 0)
+	temp = 0;
+	temp = a->nod[0];
+	i = 0;
+	while (i < (a->size - 1))
 	{
-		a->node[i] = a->node[i - 1];
-		i--;
+		a->nod[i] = a->nod[i + 1];
+		i++;
 	}
-	a->node[0] = temp;
+	a->nod[i] = temp;
 }
 
-void    rrb(t_stack *b)
+void    rb(t_stack *b)
 {
-		if (b->size < 2)
+	if (b->size < 2)
 		return ;
 	int	i;
 	int	temp;
 
-	i = (b->size - 1);
-	temp = b->node[i];
-	while (i > 0)
+	temp = 0;
+	temp = b->nod[0];
+	i = 0;
+	while (i < (b->size - 1))
 	{
-		b->node[i] = b->node[i - 1];
-		i--;
+		b->nod[i] = b->nod[i + 1];
+		i++;
 	}
-	b->node[0] = temp;
+	b->nod[i] = temp;
 }
 
-void    rrr(t_stack *a, t_stack *b)
+void	rr(t_stack *a, t_stack *b)
 {
 	if (a->size < 2)
 		return ;
 	else
-		rra(a);
+		ra(a);
 	if (b->size < 2)
 		return ;
 	else
-		rrb(b);
+		rb(b);
 }

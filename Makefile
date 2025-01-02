@@ -8,9 +8,11 @@ LIBFT = libft/src
 
 SRC = src/push_swap.c src/push_swap_utils.c src/main.c
 
-OPE = src/operation/push.c src/operation/reverse.c src/operation/rotate.c src/operation/swap.c 
+CMD = src/comands/push.c src/comands/reverse.c src/comands/rotate.c src/comands/swap.c 
 
-OBJ = $(SRC:.c=.o) $(OPE:.c=.o)
+OPE = src/operation/sort_three.c src/operation/sort_five.c
+
+OBJ = $(SRC:.c=.o) $(CMD:.c=.o) $(OPE:.c=.o)
 
 all: $(NAME)
 
