@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 10:28:48 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 23:08:57 by dbatista         ###   ########.fr       */
+/*   Created: 2025/01/04 11:01:56 by dbatista          #+#    #+#             */
+/*   Updated: 2025/01/04 11:03:54 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	creat_stack(t_stack **a, char **argv)
+void	add_node_last(t_stack **stack, int nbr)
 {
-	int	num;
-	int	i;
-
-	i = 0;
-	while (argv[i])
-	{
-		if (syntax_error(argv[i]))
-			free_error(a);
-		num = ft_atoi(argv[i]);
-		if (num > INT_MAX || num < INT_MIN)
-			free_error(a);
-		if (dup_error(*a, num))
-			free_error(a);
-		last_add_node(a, num);
-	}
-}
-
-void	last_add_node(t_stack **stack, int nbr)
-{
-	t_stack *node;
-	t_stack *last_node;
+	t_stack	*node;
+	t_stack	*last_node;
 
 	if (!stack)
 		return ;
@@ -54,5 +35,24 @@ void	last_add_node(t_stack **stack, int nbr)
 		last_node = find_last(*stack);
 		last_node->next = node;
 		node->pre = last_node;
+	}
+}
+
+void	creat_stack(t_stack **a, char **argv)
+{
+	int	num;
+	int	i;
+
+	i = 0;
+	while (argv[i])
+	{
+		if (syntax_error(argv[i]))
+			free_error(a);
+		num = ft_atoi(argv[i]);
+		if (num > INT_MAX || num < INT_MIN)
+			free_error(a);
+		if (dup_error(*a, num))
+			free_error(a);
+		add_node_last(a, num);
 	}
 }

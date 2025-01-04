@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 23:10:17 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/04 13:01:20 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,19 @@ typedef struct s_stack
 {
 	int	num;
 	int	index;
+	bool	above_med;
 	bool	cheap;
 	struct s_stack *next;
 	struct s_stack *pre;
 }	t_stack;
 
+t_stack	*find_last(t_stack *last);
+int		stack_len(t_stack *stack);
+int		stack_order(t_stack *stack);
 int		syntax_error(char *nbr);
 int		dup_error(t_stack *a, int nbr);
-void	last_add_node(t_stack **stack, int nbr);
+void	current_pos(t_stack *stack);
+void	add_node_last(t_stack **stack, int nbr);
 void	creat_stack(t_stack **a, char **argv);
 void	free_error(t_stack **a);
 void	sort_three(t_stack *a);
@@ -46,4 +51,5 @@ void	rr(t_stack *a, t_stack *b);
 void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
+
 #endif
