@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 17:07:53 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/02 18:55:30 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	find_pos(t_stack *a, int value)
 	i = 0;
 	while (i < a->size)
 	{
-		if (a->nod[i] == value)
+		if (a->num[i] == value)
 			return (i);
 		i++;
 	}
@@ -35,12 +35,12 @@ static void	push_min_to_b(t_stack *a, t_stack *b, int value)
 		return ;
 	if (pos <= (a->size / 2))
 	{
-		while (a->nod[0] != value)
+		while (a->num[0] != value)
 			ra(a);
 	}
 	else
 	{
-		while (a->nod[0] != value)
+		while (a->num[0] != value)
 			rra(a);
 	}
 	pb(a, b);
@@ -51,8 +51,8 @@ static void	find_mins(t_stack *a, int *min1, int *min2)
 	int	i;
 	int	tmp;
 
-	*min1 = a->nod[0];
-	*min2 = a->nod[1];
+	*min1 = a->num[0];
+	*min2 = a->num[1];
 	tmp = 0;
 	if (*min1 > *min2)
 	{
@@ -63,13 +63,13 @@ static void	find_mins(t_stack *a, int *min1, int *min2)
 	i = 2;
 	while (i < a->size)
 	{
-		if (a->nod[i] < *min1)
+		if (a->num[i] < *min1)
 		{
 			*min2 = *min1;
-			*min1 = a->nod[i];
+			*min1 = a->num[i];
 		}
-		else if (a->nod[i] < *min2)
-			*min2 = a->nod[i];
+		else if (a->num[i] < *min2)
+			*min2 = a->num[i];
 		i++;
 	}
 }

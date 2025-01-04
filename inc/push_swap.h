@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/02 18:25:41 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/03 23:10:17 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,23 @@
 # include "../libft/src/libft.h"
 # include <stdlib.h>
 # include <stdio.h>
+# include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_stack
 {
-	int	*nod;
-	int	size;
-	int	capacity;
+	int	num;
+	int	index;
+	bool	cheap;
+	struct s_stack *next;
+	struct s_stack *pre;
 }	t_stack;
 
-t_stack	*creat_stack(int capacity);
-int		add_number(t_stack *stack, int num);
+int		syntax_error(char *nbr);
+int		dup_error(t_stack *a, int nbr);
+void	last_add_node(t_stack **stack, int nbr);
+void	creat_stack(t_stack **a, char **argv);
+void	free_error(t_stack **a);
 void	sort_three(t_stack *a);
 void	sort_five(t_stack *a, t_stack *b);
 void	sa(t_stack	*a);

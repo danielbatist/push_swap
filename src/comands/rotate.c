@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:35 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/02 17:02:44 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void    ra(t_stack *a)
 	int	temp;
 
 	temp = 0;
-	temp = a->nod[0];
+	temp = a->num[0];
 	i = 0;
 	while (i < (a->size - 1))
 	{
-		a->nod[i] = a->nod[i + 1];
+		a->num[i] = a->num[i + 1];
 		i++;
 	}
-	a->nod[i] = temp;
+	a->num[i] = temp;
 }
 
 void    rb(t_stack *b)
@@ -38,14 +38,14 @@ void    rb(t_stack *b)
 	int	temp;
 
 	temp = 0;
-	temp = b->nod[0];
+	temp = b->num[0];
 	i = 0;
 	while (i < (b->size - 1))
 	{
-		b->nod[i] = b->nod[i + 1];
+		b->num[i] = b->num[i + 1];
 		i++;
 	}
-	b->nod[i] = temp;
+	b->num[i] = temp;
 }
 
 void	rr(t_stack *a, t_stack *b)

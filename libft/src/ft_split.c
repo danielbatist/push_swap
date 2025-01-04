@@ -6,12 +6,11 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 23:46:01 by dbatista          #+#    #+#             */
-/*   Updated: 2024/10/14 12:20:32 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/03 13:08:32 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static	size_t	ft_conts(const char *str, char set)
 {
@@ -106,23 +105,3 @@ char	**ft_split(char const *str, char set)
 	mat[world_str] = NULL;
 	return (mat);
 }
-
-/*
-#include <stdio.h>
-
-int		main(void)
-{
-	char	*str = "Hello;world;this;is;test;banana;42;rio";
-	char	set = ';';
-	char	**res = ft_split(str, set);
-	int		i;
-
-	i = 0;
-	while (res[i])
-	{
-		printf ("str[%i] : %s\n", i, res[i]);
-		i++;
-	}
-	return (0);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:05 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/02 17:02:44 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,21 +20,21 @@ void    pa(t_stack *a, t_stack *b)
 
 	if (b->size == 0)
 		return ;
-	value = b->nod[0];
+	value = b->num[0];
 	i = 0;
 	while (i < (b->size - 1))
 	{
-		b->nod[i] = b->nod[i + 1];
+		b->num[i] = b->num[i + 1];
 		i++;
 	}
 	b->size--;
 	j = a->size;
 	while (j > 0)
 	{
-		a->nod[j] = a->nod[j - 1];
+		a->num[j] = a->num[j - 1];
 		j--;
 	}
-	a->nod[0] = value;
+	a->num[0] = value;
 	a->size++;    
 }
 
@@ -46,20 +46,20 @@ void	pb(t_stack *a, t_stack *b)
 
 	if (a->size == 0)
 		return ;
-	value = a->nod[0];
+	value = a->num[0];
 	i = 0;
 	while (i < (a->size - 1))
 	{
-		a->nod[i] = a->nod[i + 1];
+		a->num[i] = a->num[i + 1];
 		i++;
 	}
 	a->size--;
 	j = b->size;
 	while (j > 0)
 	{
-		b->nod[j] = b->nod[j - 1];
+		b->num[j] = b->num[j - 1];
 		j--;
 	}
-	b->nod[0] = value;
+	b->num[0] = value;
 	b->size++;
 }

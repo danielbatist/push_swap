@@ -6,7 +6,7 @@ NAME = push_swap
 
 LIBFT = libft/src
 
-SRC = src/push_swap.c src/push_swap_utils.c src/main.c
+SRC = src/push_swap.c src/push_swap_utils.c
 
 CMD = src/comands/push.c src/comands/reverse.c src/comands/rotate.c src/comands/swap.c 
 
