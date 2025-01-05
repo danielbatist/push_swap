@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/04 22:30:37 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/05 13:26:50 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ typedef struct s_stack
 {
 	int	num;
 	int	index;
+	int	move_cost;
 	bool			above_med;
 	bool			cheap;
 	struct s_stack *target_node;
@@ -37,6 +38,13 @@ int		stack_len(t_stack *stack);
 int		stack_order(t_stack *stack);
 int		syntax_error(char *nbr);
 int		dup_error(t_stack *a, int nbr);
+void	min_top(t_stack **a);
+void	move_b_to_a(t_stack **a, t_stack **b);
+void	prep_to_push(t_stack **stack, t_stack *target_node, char name_stack);
+void	define_cheapest(t_stack *stack);
+void	check_cost(t_stack *a, t_stack *b);
+void	choose_targer_b(t_stack	*a, t_stack	*b);
+void	choose_targer_a(t_stack	*a, t_stack	*b);
 void	current_pos(t_stack *stack);
 void	add_node_last(t_stack **stack, int nbr);
 void	creat_stack(t_stack **a, char **argv);
