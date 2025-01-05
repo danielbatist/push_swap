@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 10:28:48 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/04 11:28:57 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/04 22:29:42 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,44 @@ int	stack_order(t_stack *stack)
 		stack = stack->next;
 	}
 	return (1);
+}
+
+t_stack	*find_min(t_stack *stack)
+{
+	long	min;
+	t_stack	*node_min;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->num < min)
+		{
+			min = stack->num;
+			node_min = stack;
+		}
+		stack = stack->next;
+	}
+	return (node_min);
+}
+
+t_stack	*find_max(t_stack *stack)
+{
+	long	max;
+	t_stack	*node_max;
+
+	if (!stack)
+		return (NULL);
+	max = LONG_MIN;
+	while (stack)
+	{
+		if (stack->num > max)
+		{
+			max = stack->num;
+			node_max = stack;
+		}
+		stack = stack->next;
+	}
+	return (node_max);
 }

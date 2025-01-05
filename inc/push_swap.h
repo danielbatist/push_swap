@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/04 13:01:20 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/04 22:30:37 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@ typedef struct s_stack
 {
 	int	num;
 	int	index;
-	bool	above_med;
-	bool	cheap;
+	bool			above_med;
+	bool			cheap;
+	struct s_stack *target_node;
 	struct s_stack *next;
 	struct s_stack *pre;
 }	t_stack;
 
+t_stack	*find_min(t_stack *stack);
+t_stack	*find_max(t_stack *stack);
 t_stack	*find_last(t_stack *last);
 int		stack_len(t_stack *stack);
 int		stack_order(t_stack *stack);
