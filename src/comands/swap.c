@@ -6,42 +6,43 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:13 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 10:35:15 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sa(t_stack	*a)
+static void	swap(t_stack **head)
 {
-	if (a->size < 2)
+	if (!*head || !(*head)->next)
 		return ;
-	int	temp;
-
-	temp = a->num[0];
-	a->num[0] = a->num[1];
-	a->num[1] = temp;
+	*head = (*head)->next;
+	(*head)->pre->pre = *head;
+	(*head)->pre->next = (*head)->next;
+	if ((*head)->next)
+		(*head)->next->pre = (*head)->pre;
+	(*head)->next = (*head)->pre;
+	(*head)->pre = NULL;
 }
 
-void	sb(t_stack	*b)
+void	sa(t_stack	**a, bool print)
 {
-	if (b->size < 2)
-		return ;
-	int	temp;
-
-	temp = b->num[0];
-	b->num[0] = b->num[1];
-	b->num[1] = temp;
+	swap(a);
+	if (!print)
+		printf("sa\n");
 }
 
-void	ss(t_stack	*a, t_stack *b)
+void	sb(t_stack	**b, bool print)
 {
-	if (a->size < 2)
-		return ;
-	else
-		sa(a);
-	if (b->size < 2)
-		return ;
-	else
-		sb(b);
+	swap(b);
+	if (!print)
+		printf("sb\n");
+}
+
+void	ss(t_stack	**a, t_stack **b, bool print)
+{
+	swap(a);
+	swap(b);
+	if (!print)
+		printf("ss\n");
 }

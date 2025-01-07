@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:01:56 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/04 11:03:54 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 12:03:31 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	add_node_last(t_stack **stack, int nbr)
 		return ;
 	node = malloc(sizeof(t_stack));
 	if (!node)
-		return (NULL);
+		return ;
 	node->next = NULL;
 	node->num = nbr;
 	node->cheap = 0;
@@ -54,5 +54,6 @@ void	creat_stack(t_stack **a, char **argv)
 		if (dup_error(*a, num))
 			free_error(a);
 		add_node_last(a, num);
+		i++;
 	}
 }

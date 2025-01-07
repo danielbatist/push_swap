@@ -6,60 +6,46 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:05 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/05 20:47:26 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    pa(t_stack *a, t_stack *b)
+static void	push(t_stack **dst, t_stack **src)
 {
-	int	value;
-	int	i;
-	int	j;
+	t_stack		*push_node;
 
-	if (b->size == 0)
+	if (!src)
 		return ;
-	value = b->num[0];
-	i = 0;
-	while (i < (b->size - 1))
+	push_node = *src;
+	*src = (*src)->next;
+	if (*src)
+		(*src)->pre = NULL;
+	push_node->pre = NULL;
+	if (!*dst)
 	{
-		b->num[i] = b->num[i + 1];
-		i++;
+		*dst = push_node;
+		push_node->next = NULL;
 	}
-	b->size--;
-	j = a->size;
-	while (j > 0)
+	else
 	{
-		a->num[j] = a->num[j - 1];
-		j--;
+		push_node->next = *dst;
+		push_node->next->pre = push_node;
+		*dst = push_node;
 	}
-	a->num[0] = value;
-	a->size++;    
 }
 
-void	pb(t_stack *a, t_stack *b)
+void	pa(t_stack **a, t_stack **b, bool print)
 {
-	int	value;
-	int	i;
-	int	j;
+	push(a, b);
+	if (!print)
+		printf("pa\n");
+}
 
-	if (a->size == 0)
-		return ;
-	value = a->num[0];
-	i = 0;
-	while (i < (a->size - 1))
-	{
-		a->num[i] = a->num[i + 1];
-		i++;
-	}
-	a->size--;
-	j = b->size;
-	while (j > 0)
-	{
-		b->num[j] = b->num[j - 1];
-		j--;
-	}
-	b->num[0] = value;
-	b->size++;
+void	pb(t_stack **b, t_stack **a, bool print)
+{
+	push(b, a);
+	if (!print)
+		printf("pb\n");
 }

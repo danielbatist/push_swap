@@ -6,56 +6,44 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:35 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:07:25 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    ra(t_stack *a)
+static void	rotate(t_stack **stack)
 {
-	if (a->size < 2)
-		return ;
-	int	i;
-	int	temp;
+	t_stack		*last_node;
 
-	temp = 0;
-	temp = a->num[0];
-	i = 0;
-	while (i < (a->size - 1))
-	{
-		a->num[i] = a->num[i + 1];
-		i++;
-	}
-	a->num[i] = temp;
+	if (!*stack || !(*stack)->next)
+		return ;
+	last_node = find_last(*stack);
+	last_node->next = *stack;
+	*stack = (*stack)->next;
+	(*stack)->pre = NULL;
+	last_node->next->pre = last_node;
+	last_node->next->next = NULL;
 }
 
-void    rb(t_stack *b)
+void	ra(t_stack **a, bool print)
 {
-	if (b->size < 2)
-		return ;
-	int	i;
-	int	temp;
-
-	temp = 0;
-	temp = b->num[0];
-	i = 0;
-	while (i < (b->size - 1))
-	{
-		b->num[i] = b->num[i + 1];
-		i++;
-	}
-	b->num[i] = temp;
+	rotate(a);
+	if (!print)
+		printf("ra\n");
 }
 
-void	rr(t_stack *a, t_stack *b)
+void	rb(t_stack **b, bool print)
 {
-	if (a->size < 2)
-		return ;
-	else
-		ra(a);
-	if (b->size < 2)
-		return ;
-	else
-		rb(b);
+	rotate(b);
+	if (!print)
+		printf("rb\n");
+}
+
+void	rr(t_stack **a, t_stack **b, bool print)
+{
+	rotate(a);
+	rotate(b);
+	if (!print)
+		printf("rr\n");
 }

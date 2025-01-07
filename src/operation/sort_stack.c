@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:26:49 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/05 13:27:38 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:11:58 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static	t_stack	*get_cheap(t_stack *stack)
 {
 	if (!stack)
-		return ;
+		return (NULL);
 	while (stack)
 	{
 		if (stack->cheap)
@@ -28,7 +28,7 @@ static	t_stack	*get_cheap(t_stack *stack)
 static void	rot_both(t_stack **a, t_stack **b, t_stack *node_cheap)
 {
 	while ((*b != node_cheap->target_node) && (*a != node_cheap))
-		rr(a, b);
+		rr(a, b, false);
 	current_pos(*a);
 	current_pos(*b);
 }
@@ -36,7 +36,7 @@ static void	rot_both(t_stack **a, t_stack **b, t_stack *node_cheap)
 static void	rev_rot_both(t_stack **a, t_stack **b, t_stack *node_cheap)
 {
 	while (*b != node_cheap->target_node && *a != node_cheap)
-		rrr(a, b);
+		rrr(a, b, false);
 	current_pos(*a);
 	current_pos(*b);
 }
@@ -52,7 +52,7 @@ static void	move_a_to_b(t_stack **a, t_stack **b)
 		rev_rot_both(a, b, nod_cheap);
 	prep_to_push(a, nod_cheap, 'a');
 	prep_to_push(b, nod_cheap->target_node, 'b');
-	pb(a, b);
+	pb(b, a, false);
 }
 
 void	sort_stack(t_stack **a, t_stack **b)
@@ -60,11 +60,11 @@ void	sort_stack(t_stack **a, t_stack **b)
 	int	len;
 
 	len = stack_len(*a);
-	if (len-- > 3 && !stack_order)
-		pb(a, b);
-	if (len-- > 3 && !stack_order)
-		pb(a, b);
-	while (len-- > 3 && !stack_order)
+	if (len-- > 3 && !stack_order(*a))
+		pb(b, a, false);
+	if (len-- > 3 && !stack_order(*a))
+		pb(b, a, false);
+	while (len-- > 3 && !stack_order(*a))
 	{
 		init_node_a(*a, *b);
 		move_a_to_b(a, b);

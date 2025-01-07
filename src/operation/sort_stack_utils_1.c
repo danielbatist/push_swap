@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_stack_utils_1.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 11:45:44 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/05 13:03:35 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 11:25:23 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	current_pos(t_stack *stack)
 	}
 }
 
-void	choose_targer_a(t_stack	*a, t_stack	*b)
+void	choose_target_a(t_stack	*a, t_stack	*b)
 {
 	t_stack	*index_b;
 	t_stack	*node_target;
@@ -60,7 +60,7 @@ void	choose_targer_a(t_stack	*a, t_stack	*b)
 	}
 }
 
-void	choose_targer_b(t_stack	*a, t_stack	*b)
+void	choose_target_b(t_stack	*a, t_stack	*b)
 {
 	t_stack		*index_a;
 	t_stack		*node_target;
@@ -86,7 +86,6 @@ void	choose_targer_b(t_stack	*a, t_stack	*b)
 		b = b->next;
 	}
 }
-
 
 void	check_cost(t_stack *a, t_stack *b)
 {
@@ -115,7 +114,7 @@ void	define_cheapest(t_stack *stack)
 
 	if (!stack)
 		return ;
-	node_cheapest = LONG_MAX;
+	value_cheapest = LONG_MAX;
 	while (stack)
 	{
 		if (stack->move_cost < value_cheapest)
@@ -127,4 +126,3 @@ void	define_cheapest(t_stack *stack)
 	}
 	node_cheapest->cheap = true;
 }
-

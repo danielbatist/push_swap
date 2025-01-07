@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:07 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 22:43:56 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 16:34:01 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	syntax_error(char *nbr)
 {
-	if (!(nbr == '+' || nbr == '-' || (*nbr >= '0' && *nbr <= '9')))
+	if (!(*nbr == '+' || *nbr == '-' || (*nbr >= '0' && *nbr <= '9')))
 		return (1);
 	if ((*nbr == '+' || *nbr == '-') && !(nbr[1] >= '0' && nbr[1] <= '9'))
 		return (1);
@@ -29,7 +29,7 @@ int	syntax_error(char *nbr)
 int	dup_error(t_stack *a, int nbr)
 {
 	if (!a)
-		return (1);
+		return (0);
 	while (a)
 	{
 		if (a->num == nbr)
@@ -46,7 +46,7 @@ void	free_stack(t_stack **stack)
 
 	if (!stack)
 		return ;
-	current = stack;
+	current = *stack;
 	while (current)
 	{
 		tmp = current->next;
@@ -59,5 +59,19 @@ void	free_stack(t_stack **stack)
 void	free_error(t_stack **a)
 {
 	free_stack(a);
-	printf("Error!!!");
+	printf("Error\n");
+	exit(1);
+}
+
+void	free_argv(char **args)
+{
+	int		i;
+
+	i = 0;
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
 }

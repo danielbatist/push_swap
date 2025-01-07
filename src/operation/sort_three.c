@@ -6,30 +6,21 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/31 09:29:55 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/03 14:17:07 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/06 10:28:10 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_three(t_stack	*a)
+void	sort_three(t_stack	**a)
 {
-	if (a->size != 3)
-		return ;
-	if (a->num[0] < a->num[1] && a->num[1] > a->num[2] && a->num[0] < a->num[2])
-	{
-		sa(a);
-		ra(a);
-	}
-	if (a->num[0] > a->num[1] && a->num[1] < a->num[2] && a->num[0] < a->num[2])
-		sa(a);
-	if (a->num[0] < a->num[1] && a->num[1] > a->num[2] && a->num[0] > a->num[2])
-		rra(a);
-	if (a->num[0] > a->num[1] && a->num[1] < a->num[2] && a->num[0] > a->num[2])
-		ra(a);
-	if (a->num[0] > a->num[1] && a->num[1] > a->num[2])
-	{
-		sa(a);
-		rra(a);
-	}
+	t_stack		*big_node;
+
+	big_node = find_max(*a);
+	if (big_node == *a)
+		ra(a, false);
+	else if (big_node == (*a)->next)
+		rra(a, false);
+	if ((*a)->num > (*a)->next->num)
+		sa(a, false);
 }

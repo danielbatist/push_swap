@@ -6,11 +6,13 @@ NAME = push_swap
 
 LIBFT = libft/src
 
-SRC = src/push_swap/push_swap.c src/push_swap/push_swap_utils.c src/push_swap/push_swap_init.c src/push_swap/handle_error.c
+SRC = src/push_swap/push_swap.c src/push_swap/push_swap_utils.c src/push_swap/push_swap_init.c\
+		src/push_swap/handle_error.c\
 
 CMD = src/comands/push.c src/comands/reverse.c src/comands/rotate.c src/comands/swap.c 
 
-OPE = src/operation/sort_three.c src/operation/sort_five.c
+OPE = src/operation/sort_three.c src/operation/sort_stack.c src/operation/sort_stack_utils_1.c\
+		src/operation/sort_stack_utils_2.c src/operation/inits_nodes.c\
 
 OBJ = $(SRC:.c=.o) $(CMD:.c=.o) $(OPE:.c=.o)
 
@@ -19,7 +21,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@clear
 	@make -s -C $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -g -L$(LIBFT) -lft -o $(NAME)
 	@echo -n "  Compiling"
 	@bash ./loading.sh
 	@clear
