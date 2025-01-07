@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:48 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 10:34:45 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:03:48 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ void	rra(t_stack **a, bool print)
 {
 	rev_rotate(a);
 	if (!print)
-		printf("rra\n");
+		ft_putstr_fd("rra\n", 1);
 }
 
 void	rrb(t_stack **b, bool print)
 {
 	rev_rotate(b);
 	if (!print)
-		printf("rrb\n");
+		ft_putstr_fd("rrb\n", 1);
 }
 
 void	rrr(t_stack **a, t_stack **b, bool print)
@@ -45,5 +45,5 @@ void	rrr(t_stack **a, t_stack **b, bool print)
 	rev_rotate(a);
 	rev_rotate(b);
 	if (!print)
-		printf("rrr\n");
+		ft_putstr_fd("rrr\n", 1);
 }

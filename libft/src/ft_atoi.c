@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 23:08:20 by dbatista          #+#    #+#             */
-/*   Updated: 2024/10/14 10:51:04 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 10:55:33 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,3 @@ int	ft_atoi(const char *str)
 	}
 	return (sign * result);
 }
-
-/*
-#include <stdio.h>
-int     main(void)
-{
-    const char  str[] = " +-123";
-    printf("%i\n", ft_atoi(str));
-}*/

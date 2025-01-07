@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:13 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 10:35:15 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:04:27 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	sa(t_stack	**a, bool print)
 {
 	swap(a);
 	if (!print)
-		printf("sa\n");
+		ft_putstr_fd("sa\n", 1);
 }
 
 void	sb(t_stack	**b, bool print)
 {
 	swap(b);
 	if (!print)
-		printf("sb\n");
+		ft_putstr_fd("sb\n", 1);
 }
 
 void	ss(t_stack	**a, t_stack **b, bool print)
@@ -44,5 +44,5 @@ void	ss(t_stack	**a, t_stack **b, bool print)
 	swap(a);
 	swap(b);
 	if (!print)
-		printf("ss\n");
+		ft_putstr_fd("ss\n", 1);
 }

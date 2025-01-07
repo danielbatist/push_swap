@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 23:49:05 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/05 20:47:26 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:03:44 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ void	pa(t_stack **a, t_stack **b, bool print)
 {
 	push(a, b);
 	if (!print)
-		printf("pa\n");
+		ft_putstr_fd("pa\n", 1);
 }
 
 void	pb(t_stack **b, t_stack **a, bool print)
 {
 	push(b, a);
 	if (!print)
-		printf("pb\n");
+		ft_putstr_fd("pb\n", 1);
 }

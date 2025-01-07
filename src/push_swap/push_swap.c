@@ -6,23 +6,11 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 12:53:13 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 16:35:22 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 10:53:32 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*void	print_stack(t_stack *stack)
-{
-	t_stack *current = stack;
-
-	while (current)
-	{
-		printf("%d ", current->num);
-		current = current->next;
-	}
-	printf("\n");
-}*/
 
 int	main	(int argc, char **argv)
 {
@@ -48,8 +36,6 @@ int	main	(int argc, char **argv)
 		else
 			sort_stack(&a, &b);
 	}
-	/*printf("Pilha Ordenada: ");
-	print_stack(a);*/
 	if (argc == 2)
 		free_argv(args);
 	free_stack(&a);

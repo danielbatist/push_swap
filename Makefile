@@ -1,6 +1,6 @@
 CC = cc 
 
-CFLAGS = -Wall -Wextra -Werror -Iinc
+CFLAGS = -Wall -Wextra -Werror -Iinc -g
 
 NAME = push_swap
 
@@ -21,7 +21,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	@clear
 	@make -s -C $(LIBFT)
-	@$(CC) $(CFLAGS) $(OBJ) -g -L$(LIBFT) -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -L$(LIBFT) -lft -o $(NAME)
 	@echo -n "  Compiling"
 	@bash ./loading.sh
 	@clear

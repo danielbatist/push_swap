@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/03 13:53:07 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 16:34:01 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:00:41 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	free_stack(t_stack **stack)
 void	free_error(t_stack **a)
 {
 	free_stack(a);
-	printf("Error\n");
+	ft_putstr_fd("Error\n", 1);
 	exit(1);
 }
 

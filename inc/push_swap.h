@@ -6,7 +6,7 @@
 /*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 23:47:16 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 16:34:49 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 11:03:38 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../libft/src/libft.h"
 # include <stdlib.h>
-# include <stdio.h>
 # include <limits.h>
 # include <stdbool.h>
 
