@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/04 11:01:56 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/06 12:03:31 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:49:22 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	add_node_last(t_stack **stack, int nbr)
 
 void	creat_stack(t_stack **a, char **argv)
 {
-	int	num;
-	int	i;
+	long	num;
+	int		i;
 
 	i = 0;
 	while (argv[i])

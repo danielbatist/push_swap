@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbatista <dbatista@student.42.rio>         +#+  +:+       +#+        */
+/*   By: dbatista <dbatista@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 23:08:20 by dbatista          #+#    #+#             */
-/*   Updated: 2025/01/07 10:55:33 by dbatista         ###   ########.fr       */
+/*   Updated: 2025/01/07 17:49:14 by dbatista         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ static	int	ft_sing(const char *str, int *i)
 	return (sign);
 }
 
-int	ft_atoi(const char *str)
+long	ft_atoi(const char *str)
 {
 	int		i;
-	int		sign;
-	int		result;
+	long	sign;
+	long	result;
 
 	i = 0;
 	if (!str)
